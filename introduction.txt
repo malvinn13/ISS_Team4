@@ -1,0 +1,17 @@
+Planning vacations has never been an easy thing to do, 
+especially because it involves a lot of research and decision making.
+Fortunately, DestinationBucketList app aims to provide a much easier 
+way to plan a holiday, by imposing a platform for users to create 
+a personal vacation destinations bucket list while promoting tourism 
+and sustainability. (The app will allow users to add vacation destinations 
+to their bucket list. Users will also have the option to add public 
+items from the list of destinations managed by the admin or create 
+new private items. )
+
+The scope of the project is to optimize the process of holidays' organization,
+providing objectives such as encouraging tourism and offering sustainable travel 
+practices by promoting environmentally friendly vacation destinations. 
+
+The success criteria for this app will be the minimum number of users who sign up 
+within the first 2 months being over 1 thousand, the number of destinations added to 
+the list, and the overall user satisfaction with the app's functionalities medium 4,5 out of 5.
