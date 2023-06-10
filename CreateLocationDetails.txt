@@ -1,0 +1,3 @@
+Control objects: CreateLocationControl, AddToPublicBucketListConrtol, ManageLocationControl
+Boundary objects: CreateLocationButton, CreateLocationForm
+Entity objects: Location, BucketList, User
