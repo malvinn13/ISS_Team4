@@ -1,0 +1,32 @@
+1) Reliability
+2) User-friendliness
+3) Rapid development
+4) Ease of use
+5) High-performance
+6) Low-cost
+7) Efficiency
+8) Reusability
+
+Opaque Layering.
+
+Layers:
+-Interface
+-Application Logic
+-Database
+
+Partitions Interface:
+-UserInterface
+-BucketlistInterface
+
+Application Logic Partitions:
+-LocationManagement
+-Notification
+-BucketlistManagement
+
+Database Partitions:
+-DatabaseConnection
+
+Model-view-controller architecture.
+Benefits: High-performance
+	  Reusability
+	  Rapid development
