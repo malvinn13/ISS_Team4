@@ -1,0 +1,43 @@
+Preconditions:
+1. addDestination(destination: Destination): void
+context PublicList::addDestination(destination: Destination) pre:
+	self.destinations->excludes(destination)
+context PrivateList::addDestination(destination: Destination) pre:
+	self.destinations->excludes(destination)
+2. removeDestination(destination: Destination): void
+context PublicList::removeDestination(destination: Destination) pre:
+	self.destinations->includes(destination)
+context PrivateList::removeDestination(destination: Destination) pre:
+	self.destinations->includes(destination)
+
+Postconditions:
+1. addDestination(destination: Destination): void
+context PublicList::addDestination(destination: Destination) post:
+	self.destinations->isUnique(destination) and
+	self.destinations->forAll(d1, d2 | d1 <> d2 implies not (d2 -
+	d1).days >= 1 and (d2 - d1).days <= 30) and
+	self.destinations->size() = self.destinations@pre->size() + 1
+context PrivateList::addDestination(destination: Destination) post:
+	self.destinations->isUnique(destination) and
+	self.destinations->forAll(d1, d2 | d1 <> d2 implies not (d2 -
+	d1).days >= 1 and (d2 - d1).days <= 30) and
+	self.destinations->size() = self.destinations@pre->size() + 1
+2. removeDestination(destination: Destination): void
+	context PublicList::removeDestination(destination: Destination) post:
+	self.destinations->size() = self.destinations@pre->size() - 1
+	context PrivateList::removeDestination(destination: Destination) post:
+	self.destinations->size() = self.destinations@pre->size() - 1
+
+Invariants:
+context PrivateList inv:
+	self.destinations->size() >= 1 and self.destinations->size() <= 100 and
+	d1.stayDates->overlap(d2.stayDates))
+The number of destinations in the list should be between 0 and 100
+(inclusive). The same destination cannot be added multiple times in the same
+list. The stay dates of destinations in the same private list should not overlap.
+context Destination inv:
+	self.stayDates->forAll(d1, d2 | (d2-d1).days>=1 and (d2-d1).days<=30)
+The difference between stay dates for a destination should be between 0 and
+30 days (inclusive). The difference between stay dates for a destination
+should be at least 1 day. The rating of a destination should be between 1 and
+5 (inclusive).
